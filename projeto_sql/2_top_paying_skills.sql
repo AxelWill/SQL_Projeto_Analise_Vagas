@@ -61,3 +61,33 @@ ON skills_dim.skill_id = skills_job_dim.skill_id
 INNER JOIN top_paying_jobs ON skills_job_dim.job_id = top_paying_jobs.job_id
 
 /*Vemos rapidamente que SQL continua aparecendo muito, além de python
+
+Também, modificando um pouco a query, podemos encontrar quantas vagas requerem quais habilidades, temos então*/
+
+WITH top_paying_jobs AS(
+SELECT
+    job_id,
+    company_dim.name AS company_name,
+    job_title,
+    salary_year_avg
+FROM
+    job_postings_fact
+LEFT JOIN
+    company_dim on job_postings_fact.company_id = company_dim.company_id
+WHERE 
+    job_location = 'Anywhere'
+    AND salary_year_avg IS NOT NULL
+ORDER BY
+    salary_year_avg DESC
+LIMIT 50
+)
+
+SELECT
+    skills,
+    count(skills_dim.skill_id) as frequencia
+FROM skills_dim
+LEFT JOIN skills_job_dim
+ON skills_dim.skill_id = skills_job_dim.skill_id
+INNER JOIN top_paying_jobs ON skills_job_dim.job_id = top_paying_jobs.job_id
+GROUP BY skills
+ORDER BY frequencia DESC;
