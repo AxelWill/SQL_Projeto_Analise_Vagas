@@ -8,6 +8,8 @@ Mergulhemos no mercado de trabalho da área de vagas. Focando em cargos de anali
 # Background
 Este projeto foi desenvolvido com a ideia de apontar as melhores vagas, em termo de pagamento, e as melhores habilidades para se aprender
  para conseguir tais vagas.
+
+Dados do ![Curso de SQL](https://www.lukebarousse.com/sql) de Luke Barousse.
  
 Com isto em mente, foram feitas 5 questões, e 5 queries SQL respondendo elas.
 
@@ -21,8 +23,37 @@ Com isso, gerou ainda uma dúvida. As questões acimas parecem não preencher to
 
 6. Considerando as vagas de maior salário, quais habilidades aparecem mais como requisito?
 
-
-# Ferramentas
 # Análise
+Cada query feita mirava investigar sobre os aspectos dos cargos de análise de dados, cada uma respondendo uma das perguntas acima.
+
+As questões foram abordadas da seguinte maneira:
+
+### 1. Maiores salários para analistas de dados
+Para identificar os cargos de maiores salários foram selecionadas, além de outras colunas para maior informações, a coluna de salário médio anual
+e título do cargo. Ordenando por maiores salários e focando em cargos remotos, esta query mostra os maiores salários da área.
+
+``` SQL
+SELECT
+    job_id,
+    company_dim.company_id,
+    company_dim.name AS company_name,
+    job_title,
+    job_location,    
+    job_schedule_type,
+    salary_year_avg,
+    job_posted_date
+FROM
+    job_postings_fact
+LEFT JOIN
+    company_dim on job_postings_fact.company_id = company_dim.company_id
+WHERE 
+    job_location = 'Anywhere'
+    AND job_title_short = 'Data Analyst'
+    AND salary_year_avg IS NOT NULL
+ORDER BY
+    salary_year_avg DESC
+LIMIT 10;
+```
+
 # O que aprendi
 # Conclusão
