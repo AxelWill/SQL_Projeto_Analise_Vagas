@@ -52,8 +52,64 @@ WHERE
     AND salary_year_avg IS NOT NULL
 ORDER BY
     salary_year_avg DESC
+LIMIT 50;
+```
+- Os 50 maiores salários variam de $138500 a $650000 anuais na área de análise de dados para vagas remotas, mostrando ser uma área promissora para seguir profissionalmente.
+
+### 2. Habilidades que pagam mais
+Usando de base a Query 1, pudemos encontrar a habilidades que preencher os requisitos das vagas dos cargos de maiores salários da área de dados.
+
+```SQL
+WITH top_paying_jobs AS(
+SELECT
+    job_id,
+    company_dim.name AS company_name,
+    job_title,
+    salary_year_avg
+FROM
+    job_postings_fact
+LEFT JOIN
+    company_dim on job_postings_fact.company_id = company_dim.company_id
+WHERE 
+    job_title_short = 'Data Analyst'
+    AND salary_year_avg IS NOT NULL
+ORDER BY
+    salary_year_avg DESC
+LIMIT 10
+)
+
+SELECT
+    top_paying_jobs.*,
+    skills
+FROM skills_dim
+LEFT JOIN skills_job_dim
+ON skills_dim.skill_id = skills_job_dim.skill_id
+INNER JOIN top_paying_jobs ON skills_job_dim.job_id = top_paying_jobs.job_id;
+```
+- As habilidades mais bem remuneradas neste conjunto de dados são Oracle, Linux e Git, entre outros.
+- As competências de SQL, Python, e R aparecem logo em seguida, se repetindo várias vezes na lista das 10 melhores vagas.
+
+### 3. Habilidades com maior demanda
+Saber quais são as habilidades dos cargos mais bem remuneradas pode não ser exatamente a informação que estejamos procurando, já que isso não esclarece
+quão acessível é uma vaga nestes cargos, por isso a Query 3 tem a intenção de mostrar quais das habilidades são requisitadas com maior frequência.
+
+```sql
+SELECT
+    sk.skills,
+    count(sk.skill_id)
+FROM
+    job_postings_fact AS jbf
+INNER JOIN skills_job_dim AS skjb ON skjb.job_id = jbf.job_id
+INNER JOIN skills_dim AS sk ON sk.skill_id = skjb.skill_id
+WHERE 
+    job_title_short = 'Data Analyst'
+GROUP BY sk.skills
+ORDER BY count DESC
 LIMIT 10;
 ```
-
+- Esta Query simples mostra para nós quais habilidades estão no topo da lista de requesitos para conseguir uma vaga como analísta de dados.
+- SQL, Excel e Python lideram a lista, com 92 mil vagas pedindo SQL como requisito para os candidatos à vaga.
+![Top_demand_skills](SQL_Projeto_Analise_Vagas\projeto_sql\assets\image.png)
+  
 # O que aprendi
 # Conclusão
