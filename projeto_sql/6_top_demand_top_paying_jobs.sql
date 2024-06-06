@@ -58,11 +58,13 @@ LIMIT 50
 
 SELECT
     skills,
-    count(skills_dim.skill_id) as frequencia
+    count(skills_dim.skill_id) as frequencia,
+    round(avg(jp.salary_year_avg),0) as salario_medio
 FROM skills_dim
 LEFT JOIN skills_job_dim
 ON skills_dim.skill_id = skills_job_dim.skill_id
 INNER JOIN top_paying_jobs ON skills_job_dim.job_id = top_paying_jobs.job_id
+INNER JOIN job_postings_fact as jp ON jp.job_id = skills_job_dim.job_id
 GROUP BY skills
 ORDER BY frequencia DESC;
 
