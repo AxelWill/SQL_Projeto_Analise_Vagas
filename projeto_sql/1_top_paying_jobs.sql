@@ -24,7 +24,7 @@ WHERE
     AND salary_year_avg IS NOT NULL
 ORDER BY
     salary_year_avg DESC
-LIMIT 10;
+LIMIT 50;
 
 /* Agora mudando um pouco a descrição, se quisermos ver o salário por hora, apenas no brasil?*/
 
