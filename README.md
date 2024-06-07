@@ -30,7 +30,7 @@ Cada query feita mirava investigar sobre os aspectos dos cargos de análise de d
 
 As questões foram abordadas da seguinte maneira:
 
-### 1. Maiores salários para analistas de dados
+### 1. ![Maiores salários para analistas de dados](/projeto_sql/1_top_paying_jobs.sql)
 Para identificar os cargos de maiores salários foram selecionadas, além de outras colunas para maior informações, a coluna de salário médio anual
 e título do cargo. Ordenando por maiores salários e focando em cargos remotos, esta query mostra os maiores salários da área.
 
@@ -58,7 +58,7 @@ LIMIT 50;
 ```
 - Os 50 maiores salários variam de $138500 a $650000 anuais na área de análise de dados para vagas remotas, mostrando ser uma área promissora para seguir profissionalmente.
 
-### 2. Habilidades que pagam mais
+### 2. ![Habilidades que pagam mais](/projeto_sql/2_top_paying_skills.sql)
 Usando de base a Query 1, pudemos encontrar a habilidades que preencher os requisitos das vagas dos cargos de maiores salários da área de dados.
 
 ```SQL
@@ -91,7 +91,7 @@ INNER JOIN top_paying_jobs ON skills_job_dim.job_id = top_paying_jobs.job_id;
 - As habilidades mais bem remuneradas neste conjunto de dados são Oracle, Linux e Git, entre outros.
 - As competências de SQL, Python, e R aparecem logo em seguida, se repetindo várias vezes na lista das 10 melhores vagas.
 
-### 3. Habilidades com maior demanda
+### 3. ![Habilidades com maior demanda](/projeto_sql/3_top_demanding_skills.sql)
 Saber quais são as habilidades dos cargos mais bem remuneradas pode não ser exatamente a informação que estejamos procurando, já que isso não esclarece
 quão acessível é uma vaga nestes cargos, por isso a Query 3 tem a intenção de mostrar quais das habilidades são requisitadas com maior frequência.
 
@@ -138,7 +138,7 @@ LIMIT 10;
 ![Top_demand_skills](/projeto_sql/assets/Q4.png)
 -* O gráfico gerado pelo PostgreSQL mostra as habilidades mais bem remuneradas em média, com SVN no topo.
 
-### 5. Habilidades ideais
+### 5. ![Habilidades ideais](/projeto_sql/4_optimal_skills.sql)
 A Query 4 nos mostrou algo que pode ser um pouco confuso.
 
 SQL não é uma das habilidades mais bem remuneradas em média, na verdade elá abaixo do meio da lista de mais de 170 habilidades.
@@ -196,7 +196,7 @@ Mas ainda assim houve uma inconsistência quando foram comparadas as médias sal
 
 Vamos explorar um pouco mais.
 
-### 6. Maiores demandas com maiores salários
+### 6. ![Maiores demandas com maiores salários](/projeto_sql/6_top_demand_top_paying_jobs.sql)
 Esta Query tem o objetivo de selecionar as vagas de maior remuneração, como ja feito antes, e com base nelas, analisar quais são as habilidades que tem mais demanda, já que haviam habilidades mais raras no topo da lista, esta query nos mostra algo interessante.
 
 ```SQL
