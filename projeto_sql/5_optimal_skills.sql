@@ -14,7 +14,6 @@ WHERE
     AND job_work_from_home = TRUE
 GROUP BY
     sk.skill_id
---HAVING COUNT(skjb.job_id) > 15
 ORDER BY 
     avg_slr DESC,
     demand_count DESC
