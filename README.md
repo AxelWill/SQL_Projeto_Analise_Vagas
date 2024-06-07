@@ -4,12 +4,14 @@ Mergulhemos no mercado de trabalho da área de vagas. Focando em cargos de anali
  em análise de dados.
 
  Queries SQL: ![clique aqui](/projeto_sql/)
+ 
+ Dentro dos arquivos também é explorado um pouco mais os dados.
 
 # Background
 Este projeto foi desenvolvido com a ideia de apontar as melhores vagas, em termo de pagamento, e as melhores habilidades para se aprender
  para conseguir tais vagas.
 
-Dados do ![Curso de SQL](https://www.lukebarousse.com/sql) de Luke Barousse.
+Dados do Curso de SQL de Luke Barousse.
  
 Com isto em mente, foram feitas 5 questões, e 5 queries SQL respondendo elas.
 
@@ -111,9 +113,9 @@ LIMIT 10;
 - SQL, Excel e Python lideram a lista, com 92 mil vagas pedindo SQL como requisito para os candidatos à vaga.
 
 ![Top_demand_skills](/projeto_sql/assets/Q3.png)
-* O gráfico gerado pelo PostgreSQL mostra quais são as habilidades que passuem a maior quantia de vagas com este requisito.
+-* O gráfico gerado pelo PostgreSQL mostra quais são as habilidades que passuem a maior quantia de vagas com este requisito.
   
-### 4. Habilidades com maior remuneração em média
+### ![4. Habilidades com maior remuneração em média](/projeto_sql/4_top_average_paying_skills.sql)
 A Query 2 nos mostra as habilidades mais bem remuneradas, e a 3 mostra as mais requisitadas, o objetivo da Query 4 é mostrar quais ferramentas tem a maior remuneração em média e nos ajudar a identificar a skill ideal para aprimorar. 
 
 ```SQL
@@ -134,7 +136,7 @@ LIMIT 10;
 - A query acima mostra os salários médios para cada habilidade em vagas de analísta de dados.
 - O resultados são um pouco diferente do imaginado levando em conta as últimas duas queries, SQL e python não aparecem no top 10, na verdade, se expandir a lista, SQL está na posição 109.
 ![Top_demand_skills](/projeto_sql/assets/Q4.png)
-* O gráfico gerado pelo PostgreSQL mostra as habilidades mais bem remuneradas em média, com SVN no topo.
+-* O gráfico gerado pelo PostgreSQL mostra as habilidades mais bem remuneradas em média, com SVN no topo.
 
 ### 5. Habilidades ideais
 A Query 4 nos mostrou algo que pode ser um pouco confuso.
@@ -187,7 +189,7 @@ ORDER BY
 LIMIT 20;
 ```
 ![Top_demand_skills](/projeto_sql/assets/Q5_2.png)
-- Com a query atualizada, apenas vagas com remuneração significativa e habilidades com maior demanda foram considerados, assim vemos que SQL saltou posições para nº 14, mostrando quão valiosa está habilidade é.
+-* Com a query atualizada, apenas vagas com remuneração significativa e habilidades com maior demanda foram considerados, assim vemos que SQL saltou posições para nº 14, mostrando quão valiosa está habilidade é.
 
 Como objetivo inicial, considerando que a diferença de remuneração entre as outras habilidades do top 20, e que sua demanda é significativamente maior que qualquer outra, estas queries já seriam o suficiente para mostrar que SQL tem extrema relevância para vagas de analísta de dados.
 Mas ainda assim houve uma inconsistência quando foram comparadas as médias salariais.
@@ -228,10 +230,15 @@ ORDER BY frequencia DESC;
 - Esta query nos mostra qual a demanda de cada habilidade nas 50 vagas mais bem remuneradas como analista de dados, e o que nós vemos é SQL liderando.
 
 ![Top_demand_skills](/projeto_sql/assets/Q6.png)
-* SQL em alta, junto de python, mostra-se a melhor habilidade para se aprender para entrar na área.
+-* SQL em alta, junto de python, mostra-se a melhor habilidade para se aprender para entrar na área.
 
 O que aconteceu então para a Query 4 não mostrar SQL como uma habilidade de alta remuneração? As grande maioria das vagas são de remuneração mais baixa, e sendo a habilidade disparadamente a com maior demanda, essas vagas acabam puxando SQL para baixo na lista, dando a impressão de que não são tão ótimas, quando na verdade ela é uma competência presente em todos os níveis de atuação, sendo, por esta análise, a melhor habilidade para aprimorar ou aprender com o objetivo de trabalhar na área de análise de dados.
 
 
 # O que aprendi
+- **Queries Avançadas:** Com CTE e uniões de tabelas pude fazer análises por partes, facilitando muito a formação de queries mais interessantes.
+- **Agregação de dados:** Este projeto utilizou muito a cláusula GROUP BY, ajudando a me familizarizar com a agregação, que até então era um tanto confusa para mim.
+- **Questionamente Analítico:** O projeto propôs 5 questões, e dentro delas fui capaz de entender o motivos delas, como responder elas, como eu poderia fazer outra análise a partir daquelas propostas e queries, e ainda deidi uma 6ª questão que achei que cabia bem à análise e ao projeto.
+
 # Conclusão
+
