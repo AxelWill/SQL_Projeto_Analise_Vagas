@@ -3,7 +3,7 @@ Mergulhemos no mercado de trabalho da área de vagas. Focando em cargos de anali
  este projeto explora cargos com os maiores salários, habilidades em alta demanda, e onde demanda encontra altos salários
  em análise de dados.
 
- Queries SQL: ![clique aqui](/projeto_sql/)
+ Queries SQL: [clique aqui](/projeto_sql/)
  
  Dentro dos arquivos também é explorado um pouco mais os dados.
 
@@ -242,3 +242,5 @@ O que aconteceu então para a Query 4 não mostrar SQL como uma habilidade de al
 
 # Conclusão
 
+O projeto foi de grande valor de aprendizado, me guiando através de perguntas interessantes o suficiente para explicitar a utilidade do que estava sendo ensinado, e com espaço o suficiente para poder modificar as perguntas e explorar o dados e a ferramenta SQL de maneira mais profunda.
+Agradeço ao professor Luke Barousse, pela aula de SQL e pelo projeto proposto.
